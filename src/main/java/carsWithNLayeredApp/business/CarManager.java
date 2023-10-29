@@ -20,37 +20,37 @@ public class CarManager {
 
     public void add(Car car) throws Exception{
         // business rules
-        if(car.getUnitPrice()<500) {
-            throw new Exception("Individual unit price cannot be lower than 500.");
+        if(car.getUnitPrice()<30000) {
+            throw new Exception("Individual unit price cannot be lower than 30000.");
         }
         carDao.add(car);
 
         for (Logger logger : loggers) {
-            logger.log(car.getName() + " model car was added.");
+            logger.log(car.getBrandName()+ " brand "+car.getModelName() + " model car was added.");
         }
     }
 
     public void view(Car car) {
         carDao.view(car);
         for (Logger logger : loggers) {
-            logger.log(car.getName() + " model car was viewed.");
+            logger.log(car.getBrandName()+ " brand "+car.getModelName() + " model car was viewed.");
         }
     }
 
     public void update(Car car) throws Exception {
-        if(Objects.equals(car.getName(), "Volvo")) {
-            throw new Exception(car.getName() + " model cars require inspection before tampering.");
+        if(Objects.equals(car.getBrandName(), "Volvo")) {
+            throw new Exception(car.getBrandName() + " brand cars require inspection before tampering.");
         }
         carDao.update(car);
         for (Logger logger : loggers) {
-            logger.log(car.getName() + " model car was updated.");
+            logger.log(car.getBrandName()+ " brand "+car.getModelName() + " model car was updated.");
         }
     }
 
     public void delete(Car car) {
         carDao.delete(car);
         for (Logger logger : loggers) {
-            logger.log(car.getName() + " model car was removed from the system.");
+            logger.log(car.getBrandName()+ " brand "+car.getModelName() + " model car was removed from the system.");
         }
     }
 }

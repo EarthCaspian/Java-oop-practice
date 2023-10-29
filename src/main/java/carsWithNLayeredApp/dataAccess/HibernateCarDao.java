@@ -21,4 +21,6 @@ public class HibernateCarDao implements CarDao{
     public void delete(Car car) {
         System.out.println("Deletion from db using Hibernate.");
     }
+
+
 }

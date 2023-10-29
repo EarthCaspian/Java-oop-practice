@@ -1,17 +1,22 @@
 package carsWithNLayeredApp.entities;
 
-public class Car {
+public class Car extends BaseVehicle implements Vehicle {
     private int id;
-    private String name;
+    private String unitName;
     private double unitPrice;
 
-    public Car() {
+
+    public Car(String brandName, String modelName, String productionYear) {
+        super(brandName,modelName,productionYear);
     }
 
-    public Car(int id, String name, double unitPrice) {
+    public Car(String brandName, String modelName, String productionYear,int id, String unitName, double unitPrice) {
+        super(brandName,modelName,productionYear);
         this.id = id;
-        this.name = name;
+        this.unitName = unitName;
         this.unitPrice = unitPrice;
+
+
     }
 
     public int getId() {
@@ -23,12 +28,13 @@ public class Car {
     }
 
     public String getName() {
-        return name;
+        return unitName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String unitName) {
+        this.unitName = unitName;
     }
+
 
     public double getUnitPrice() {
         return unitPrice;
@@ -37,4 +43,26 @@ public class Car {
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
+
+    @Override
+    public void engineOn(Car car) {
+
+    }
+
+    @Override
+    public void accelerate(Car car) {
+
+    }
+
+    @Override
+    public void breaks(Car car) {
+
+    }
+
+    @Override
+    public void electronics(Car car) {
+
+    }
+
+
 }
